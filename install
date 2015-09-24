@@ -1,0 +1,10 @@
+#!/bin/bash
+/show/description "Install pinout"
+/show/messagebox "By Gadgetoid"
+/show/messagebox "http://pi.gadgetoid.com/pinout"
+/system/gitcloner gadgetoid/Pinout2 /do/pinout/www
+pip install flask
+pip install markdown
+/system/install python-yaml
+cd /do/pinout/www && ./generate-html.py
+cp -rf /do/pinout/www/resources /do/pinout/www/output/en-GB/
